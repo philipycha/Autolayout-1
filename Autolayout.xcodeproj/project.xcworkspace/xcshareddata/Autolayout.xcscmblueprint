@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AE15ABFC0B332F002FBF2E2C5358FF36D3A51A51",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "AE15ABFC0B332F002FBF2E2C5358FF36D3A51A51" : 0,
+    "C039F5EE824BD4AB2F249337409D8753634A35ED" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E0528101-B852-412F-8F6D-C6E7FD958CBC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "AE15ABFC0B332F002FBF2E2C5358FF36D3A51A51" : "Autolayout\/",
+    "C039F5EE824BD4AB2F249337409D8753634A35ED" : "iOS-Student-Autolayout"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Autolayout",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Autolayout.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/philipycha\/Autolayout-1.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AE15ABFC0B332F002FBF2E2C5358FF36D3A51A51"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lighthouse-labs\/iOS-Student-Autolayout.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C039F5EE824BD4AB2F249337409D8753634A35ED"
+    }
+  ]
+}

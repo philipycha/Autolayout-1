@@ -23,6 +23,7 @@
 @property (nonatomic, weak) NSLayoutConstraint *    purpleBoxWidth;
 @property (nonatomic, weak) NSLayoutConstraint *    purpleBoxRight;
 @property (nonatomic, weak) NSLayoutConstraint *    purpleBoxBottom;
+@property (nonatomic, weak) NSLayoutConstraint *    purpleBoxBottom2;
 
 @property (nonatomic, weak) UIView *                redBox;
 @property (nonatomic, weak) NSLayoutConstraint *    redBoxRight;
@@ -59,6 +60,18 @@
 @property (nonatomic, weak) NSLayoutConstraint *    blueBox3Width;
 @property (nonatomic, weak) NSLayoutConstraint *    blueBox3CenterX;
 @property (nonatomic, weak) NSLayoutConstraint *    blueBox3CenterY;
+
+@property (nonatomic, weak) UIView *                yellowBox;
+@property (nonatomic, weak) NSLayoutConstraint *    yellowBoxHeight;
+@property (nonatomic, weak) NSLayoutConstraint *    yellowBoxLeft;
+@property (nonatomic, weak) NSLayoutConstraint *    yellowBoxRight;
+@property (nonatomic, weak) NSLayoutConstraint *    yellowBoxBottom;
+
+@property (nonatomic, weak) UIButton *              hideYellowButton;
+@property (nonatomic, weak) NSLayoutConstraint *    hideButtonTop;
+@property (nonatomic, weak) NSLayoutConstraint *    hideButtonWidth;
+@property (nonatomic, weak) NSLayoutConstraint *    hideButtonLeft;
+@property (nonatomic, weak) NSLayoutConstraint *    hideButtonHeight;
 
 
 
@@ -152,6 +165,7 @@
     
     // Set up your views and constraints here
     
+    
     UIView *purpleBox = [[UIView alloc] initWithFrame:CGRectZero];
     purpleBox.translatesAutoresizingMaskIntoConstraints = NO;
     purpleBox.backgroundColor = [UIColor purpleColor];
@@ -174,6 +188,15 @@
                                                                       multiplier:1.0
                                                                         constant:-20];
     
+//   NSLayoutConstraint *purpleBoxBottom2 = [NSLayoutConstraint constraintWithItem:purpleBox
+//                                                                       attribute:NSLayoutAttributeBottom
+//                                                                       relatedBy:NSLayoutRelationEqual
+//                                                                          toItem:self.yellowBox
+//                                                                       attribute:NSLayoutAttributeTop
+//                                                                      multiplier:1.0
+//                                                                        constant:-20];
+
+    
     NSLayoutConstraint *purpleBoxWidth = [NSLayoutConstraint constraintWithItem:purpleBox
                                                                       attribute:NSLayoutAttributeWidth
                                                                       relatedBy:NSLayoutRelationEqual
@@ -194,9 +217,11 @@
     [framingView addConstraint:purpleBoxBottom];
     [framingView addConstraint:purpleBoxWidth];
     [framingView addConstraint:purpleBoxHeight];
+//    [framingView addConstraint:purpleBoxBottom2];
     
     self.purpleBoxRight = purpleBoxRight;
     self.purpleBoxBottom = purpleBoxBottom;
+//    self.purpleBoxBottom2 = purpleBoxBottom2;
     self.purpleBoxWidth = purpleBoxWidth;
     self.purpleBoxHeight = purpleBoxHeight;
     
@@ -493,11 +518,106 @@
     self.blueBox3CenterX = blueBox3CenterX;
     
     
+    UIView *yellowBox = [[UIView alloc] initWithFrame:CGRectZero];
+    yellowBox.translatesAutoresizingMaskIntoConstraints = NO;
+    yellowBox.backgroundColor = [UIColor yellowColor];
+    [self.framingView addSubview:yellowBox];
+    self.yellowBox = yellowBox;
+    
+    NSLayoutConstraint *yellowBoxHeight = [NSLayoutConstraint constraintWithItem:yellowBox
+                                                                       attribute:NSLayoutAttributeHeight
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:nil
+                                                                       attribute:NSLayoutAttributeNotAnAttribute
+                                                                      multiplier:1.0
+                                                                        constant:150];
+    
+    NSLayoutConstraint *yellowBoxLeft = [NSLayoutConstraint constraintWithItem:yellowBox
+                                                                     attribute:NSLayoutAttributeLeft
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:framingView
+                                                                     attribute:NSLayoutAttributeLeft
+                                                                    multiplier:1.0
+                                                                      constant:0];
+    
+    NSLayoutConstraint *yellowBoxRight = [NSLayoutConstraint constraintWithItem:yellowBox
+                                                                      attribute:NSLayoutAttributeRight
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:framingView
+                                                                      attribute:NSLayoutAttributeRight
+                                                                     multiplier:1.0
+                                                                       constant:0];
+    
+    NSLayoutConstraint *yellowBoxBottom = [NSLayoutConstraint constraintWithItem:yellowBox
+                                                                       attribute:NSLayoutAttributeBottom
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:framingView
+                                                                       attribute:NSLayoutAttributeBottom
+                                                                      multiplier:1.0
+                                                                        constant:0];
+    
+    [framingView addConstraint:yellowBoxLeft];
+    [framingView addConstraint:yellowBoxRight];
+    [framingView addConstraint:yellowBoxHeight];
+    [framingView addConstraint:yellowBoxBottom];
+    
+    self.yellowBoxBottom = yellowBoxBottom;
+    self.yellowBoxHeight = yellowBoxHeight;
+    self.yellowBoxRight = yellowBoxRight;
+    self.yellowBoxLeft = yellowBoxLeft;
+    
+
+       UIButton *hideYellowButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [hideYellowButton setTitle:@"Hide Box" forState:UIControlStateNormal];
+    [hideYellowButton addTarget:self action:@selector(hideYellowBox:) forControlEvents:UIControlEventTouchUpInside];
+//    [hideYellowButton sizeToFit];
+    [self.framingView addSubview:hideYellowButton];
+    hideYellowButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.hideYellowButton = hideYellowButton;
+    
+    NSLayoutConstraint *hideButtonHeight = [NSLayoutConstraint constraintWithItem:hideYellowButton
+                                                                       attribute:NSLayoutAttributeHeight
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:nil
+                                                                       attribute:NSLayoutAttributeNotAnAttribute
+                                                                      multiplier:1.0
+                                                                        constant:20];
+    
+//    NSLayoutConstraint *hideButtonWidth = [NSLayoutConstraint constraintWithItem:hideYellowButton
+//                                                                     attribute:NSLayoutAttributeWidth
+//                                                                     relatedBy:NSLayoutRelationEqual
+//                                                                        toItem:nil
+//                                                                     attribute:NSLayoutAttributeNotAnAttribute
+//                                                                    multiplier:1.0
+//                                                                      constant:35];
+    
+    NSLayoutConstraint *hideButtonTop = [NSLayoutConstraint constraintWithItem:hideYellowButton
+                                                                      attribute:NSLayoutAttributeTop
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:framingView
+                                                                      attribute:NSLayoutAttributeTop
+                                                                     multiplier:1.0
+                                                                      constant:40];
+    
+    NSLayoutConstraint *hideButtonLeft = [NSLayoutConstraint constraintWithItem:hideYellowButton
+                                                                       attribute:NSLayoutAttributeCenterX
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:framingView
+                                                                       attribute:NSLayoutAttributeCenterX
+                                                                      multiplier:1.0
+                                                                        constant:0];
+    
+    [framingView addConstraint:hideButtonTop];
+    [framingView addConstraint:hideButtonLeft];
+//    [framingView addConstraint:hideButtonWidth];
+    [framingView addConstraint:hideButtonHeight];
+    
+    self.hideButtonHeight = hideButtonHeight;
+//    self.hideButtonWidth = hideButtonWidth;
+    self.hideButtonLeft = hideButtonLeft;
+    self.hideButtonTop = hideButtonTop;
     
 }
-
-
-
 
 
 - (void)resizeFramingView:(id)sender
@@ -522,6 +642,39 @@
         [self.view layoutIfNeeded];
     }];
 }
+
+- (IBAction)hideYellowBox:(id)sender {
+    
+//    self.yellowBox.hidden = YES;
+    
+    if (self.yellowBox.alpha == 0) {
+        
+        [UIView animateWithDuration:1.0 animations:^{
+            
+            self.yellowBox.alpha = 1;
+            
+            [self.view layoutIfNeeded];
+            
+            
+        }];
+    }
+    else
+    {
+        [UIView animateWithDuration:1.0 animations:^{
+            
+            self.yellowBox.alpha = 0;
+            
+            [self.view layoutIfNeeded];
+            
+            
+        }];
+    }
+    
+    
+    
+    
+}
+
 
 
 
